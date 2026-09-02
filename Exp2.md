@@ -13,14 +13,49 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+struct numbers
+{
+    int a;
+    int b;
+};
+
+struct numbers add(struct numbers n)
+{
+    struct numbers result;
+    
+    result.a = n.a + n.b;
+    
+    return result;
+}
+
+int main()
+{
+    struct numbers n, result;
+
+    printf("Enter the value of a: ");
+    scanf("%d", &n.a);
+
+    printf("Enter the value of b: ");
+    scanf("%d", &n.b);
+
+    result = add(n);
+
+    printf("Sum = %d\n", result.a);
+
+    return 0;
+}
+```
 
 
 
 
 Output:
 
-//paste your output screenshots here
+<img width="928" height="640" alt="image" src="https://github.com/user-attachments/assets/21ebf117-d9e7-4979-a274-6de54a591d85" />
+
 
 
 
