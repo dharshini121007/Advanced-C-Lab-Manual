@@ -12,10 +12,54 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
-//type your code here
+```
+#include <stdio.h>
+
+int max_of_four(int n1, int n2, int n3, int n4)
+{
+    int max = n1;
+
+    if(n2 > max)
+    {
+        max = n2;
+    }
+
+    if(n3 > max)
+    {
+        max = n3;
+    }
+
+    if(n4 > max)
+    {
+        max = n4;
+    }
+
+    return max;
+}
+
+int main()
+{
+    int n1, n2, n3, n4, greater;
+
+    printf("Enter four numbers: ");
+    scanf("%d %d %d %d", &n1, &n2, &n3, &n4);
+
+    greater = max_of_four(n1, n2, n3, n4);
+
+    printf("Greatest number = %d", greater);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+```
+Example Output:
+
+Enter four numbers: 12 45 23 9
+
+Greatest number = 45
+```
 
 Result:
 Thus, the program  that create a function to find the greatest number is verified successfully.
@@ -36,10 +80,65 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
-//type your code here
+```
+#include <stdio.h>
+
+void calculate_the_max(int n, int k)
+{
+    int a = 0, o = 0, x = 0;
+    int i, j;
+
+    for(i = 1; i <= n; i++)
+    {
+        for(j = i + 1; j <= n; j++)
+        {
+            if((i & j) < k && (i & j) > a)
+            {
+                a = (i & j);
+            }
+
+            if((i | j) < k && (i | j) > o)
+            {
+                o = (i | j);
+            }
+
+            if((i ^ j) < k && (i ^ j) > x)
+            {
+                x = (i ^ j);
+            }
+        }
+    }
+
+    printf("Maximum AND value = %d\n", a);
+    printf("Maximum OR value = %d\n", o);
+    printf("Maximum XOR value = %d\n", x);
+}
+
+int main()
+{
+    int n, k;
+
+    printf("Enter values of n and k: ");
+    scanf("%d %d", &n, &k);
+
+    calculate_the_max(n, k);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+```
+Example Output:
+
+Enter values of n and k: 5 4
+
+Maximum AND value = 2
+
+Maximum OR value = 3
+
+Maximum XOR value = 3
+```
 
 Result:
 Thus, the program to print the maximum values for the AND, OR and XOR comparisons
@@ -59,10 +158,82 @@ Algorithm:
 5.	Use a for loop to iterate over the queries.
  
 Program:
-//type your code here
+```
+#include <stdio.h>
+
+int main()
+{
+    int noshel, noque;
+    int shelarr[10][10];
+    int nobookarr[10] = {0};
+    int i, type, x, y, k = 0, c = 0;
+
+    printf("Enter number of shelves and queries: ");
+    scanf("%d %d", &noshel, &noque);
+
+    for(i = 0; i < noque; i++)
+    {
+        printf("Enter query type: ");
+        scanf("%d", &type);
+
+        if(type == 1)
+        {
+            printf("Enter shelf number and book pages: ");
+            scanf("%d %d", &x, &y);
+
+            shelarr[x][nobookarr[x]] = y;
+            nobookarr[x]++;
+
+            c++;
+        }
+        else if(type == 2)
+        {
+            printf("Enter shelf number and book index: ");
+            scanf("%d %d", &x, &y);
+
+            printf("Book pages = %d\n", shelarr[x][y]);
+        }
+        else if(type == 3)
+        {
+            printf("Enter shelf number: ");
+            scanf("%d", &x);
+
+            printf("Number of books = %d\n", nobookarr[x]);
+        }
+    }
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+```
+Example Output:
+
+Enter number of shelves and queries: 2 4
+
+Enter query type: 1
+
+Enter shelf number and book pages: 0 120
+
+Enter query type: 1
+
+Enter shelf number and book pages: 0 200
+
+Enter query type: 2
+
+Enter shelf number and book index: 0 1
+
+Book pages = 200
+
+Enter query type: 3
+
+Enter shelf number: 0
+
+Number of books = 2
+
+Result: Thus, the program to write the logic for the requests is verified successfully.
+```
 
 
 Result:
@@ -86,10 +257,54 @@ Algorithm:
 
 
 Program:
-//type your code here
+```
+
+#include <stdio.h>
+
+int main()
+{
+    int n, i, sum = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int a[n];
+
+    printf("Enter the elements:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+        sum = sum + a[i];
+    }
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}
+```
+
 
 Output:
-//paste your output here
+```
+Example Output:
+
+Enter number of elements: 5
+
+Enter the elements:
+
+10
+
+20
+
+30
+
+40
+
+50
+
+Sum = 150
+```
 
  
 
@@ -120,10 +335,39 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-//type your code here
+```
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char sentence[100];
+    int i, count = 0;
+
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+
+    for(i = 0; sentence[i] != '\0'; i++)
+    {
+        if((sentence[i] != ' ' && sentence[i] != '\n') &&
+           (i == 0 || sentence[i - 1] == ' '))
+        {
+            count++;
+        }
+    }
+
+    printf("Number of words = %d", count);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+```
+Example Output:
+
+Enter a sentence: Welcome to C programming Number of words = 4
+```
 
 
 
